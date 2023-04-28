@@ -126,29 +126,30 @@ var diagrama = $(go.Diagram, "divDiagrama",
 	
 	diagrama.model = $(go.GraphLinksModel,
 		{
-			nodeDataArray: [
-				{ key: 1, source: "images/picto_go.png", loc: "0 0", desiredSize: new go.Size(256, 256), category: "action" },
-				{ source: "images/Time.png", loc: "0 0", desiredSize: new go.Size(256, 256), text: "Medical appointment is at 10:00 a.m." },
-				{ source: "images/hospitalCR.jpg", loc: "0 0", desiredSize: new go.Size(256, 256), category: "place" },
-				{ source: "images/SocialStory.png", loc: "0 0", desiredSize: new go.Size(256, 256), text: "If there are people in the waiting room, say \"Good morning\"" },
-				{ source: "images/picto_esperar.png", loc: "0 0", desiredSize: new go.Size(256, 256), category: "action" },
-				{ source: "images/youtube.png", loc: "0 0", desiredSize: new go.Size(256, 256) },
-				{ source: "images/Nurse.png", loc: "0 0", desiredSize: new go.Size(256, 256), text: "The ophthalmology nurse (Maria Garcia) will indicate when you can enter the consultation room", category: "person" },
-				{ source: "images/SocialStory.png", loc: "0 0", desiredSize: new go.Size(256, 256), text: "Follow the nurse and enter the consultation room" },
-				{ source: "images/picto_entrar.png", loc: "0 0", desiredSize: new go.Size(256, 256), category: "action" },
-				{ source: "images/SocialStory.png", loc: "0 0", desiredSize: new go.Size(256, 256), text: "Greet Dr. Carlos and wait until he indicates that you can sit down" },
-				{ source: "images/doctor.png", loc: "0 0", desiredSize: new go.Size(256, 256), text: "Ophthalmologist (Dr. Carlos)", category: "person" },
+			nodeDataArray: [ //{ key: 1, source: "images/picto_go.png", loc: "0 0", desiredSize: new go.Size(256, 256), category: "action" },
+        	[%for (p in PlanningNode.all){%]
+        		[% if (p.isKindOf(Person)) {%]
+        			{ source: "[%=p.imagePath%]", loc: "0 0", desiredSize: new go.Size([%=p.size%], [%=p.size%]), text: "[%=p.description%]", category: "person" },
+        		[%} else if (p.isKindOf(Action)) {%]
+        			{ source: "[%=p.imagePath%]", loc: "0 0", desiredSize: new go.Size([%=p.size%], [%=p.size%]), text: "[%=p.description%]", category: "action" },
+        		[%} else if (p.isKindOf(Place)) {%]
+        			{ source: "[%=p.imagePath%]", loc: "0 0", desiredSize: new go.Size([%=p.size%], [%=p.size%]), text: "[%=p.description%]", category: "place" },
+        		[%} else {%]
+        			{ source: "[%=p.imagePath%]", loc: "0 0", desiredSize: new go.Size([%=p.size%], [%=p.size%]), text: "[%=p.description%]" },
+        		[%}%]
+		    [%}%]
 			]/*,
 			linkDataArray: [
 				{from: 1, to: 2, category: "enlace" }
 			]*/
 		});
+	
 		
 	/***
 		COMUNICACIÓN CLIENTE-SERVIDOR
 		--- TOGETHERJS ---
 	***/
-	diagrama.model.addChangedListener(function(e) {
+	/* diagrama.model.addChangedListener(function(e) {
 		if (e.isTransactionFinished) {
 			var json = e.model.toIncrementalJson(e);
 			
@@ -169,4 +170,4 @@ var diagrama = $(go.Diagram, "divDiagrama",
 		diagrama.model.applyIncrementalJson(msg.output);
 		//diagram.isModified = false;
 		console.log(msg.output);
-	});	
+	}); */

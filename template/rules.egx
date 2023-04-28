@@ -1,0 +1,14 @@
+ pre {
+  var html : String = "../";
+  var javascript : String = "../js/";
+}
+
+rule HeadTitle transform p : Planning {
+	template: "./html_template.egl"
+	target: html+"index.html"
+}
+
+rule ShowPlanning transform p : Planning {
+	template: "./js_template.egl"
+	target: javascript+"teaw_planning.js"
+}

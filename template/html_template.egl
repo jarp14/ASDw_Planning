@@ -35,13 +35,13 @@
 				<p>Copyright © 2023 CHICO Research Group | All rights reserved</p>
 			</footer>
 			
-			<script>
-				var TogetherJSConfig_autoStart = true;
-				var TogetherJSConfig_suppressJoinConfirmation = true;
+			<!-- <script>
+				<!--var TogetherJSConfig_autoStart = true;-->
+				<!--var TogetherJSConfig_suppressJoinConfirmation = true;
 				var TogetherJSConfig_dontShowClicks = ":not(canvas"
 				TogetherJSConfig_hubBase = "https://pickled-nervous-bar.glitch.me/";
-			</script>
-			<script src="https://togetherjs.com/togetherjs-min.js"></script>
+			</script> -->
+			<!-- <script src="https://togetherjs.com/togetherjs-min.js"></script> -->
 			<script src="gojs/go-debug.js"></script>
 			<script src="js/teaw_planning.js"></script>
 			</body>
