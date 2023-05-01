@@ -29,11 +29,12 @@ var diagrama = $(go.Diagram, "divDiagrama",
 			new go.Binding("desiredSize")),
 			$(go.TextBlock,
 				{
-					font: "12pt sans-serif, Arial, Helvetica",
+					font: "14pt sans-serif, Arial, Helvetica",
 					margin: 20,
 					maxSize: new go.Size(256-16, NaN),
 					wrap: go.TextBlock.WrapFit,
-					editable: true
+					editable: true,
+					//textAlign: "center"
 				},
 			new go.Binding("text").makeTwoWay())
 		)
@@ -51,11 +52,12 @@ var diagrama = $(go.Diagram, "divDiagrama",
 				new go.Binding("desiredSize"))),
 			$(go.TextBlock,
 				{
-					font: "12pt sans-serif, Arial, Helvetica",
+					font: "14pt sans-serif, Arial, Helvetica",
 					margin: 20,
 					maxSize: new go.Size(256-16, NaN),
 					wrap: go.TextBlock.WrapFit,
-					editable: true
+					editable: true,
+					//textAlign: "center"
 				},
 			new go.Binding("text").makeTwoWay())
 	);
@@ -70,10 +72,11 @@ var diagrama = $(go.Diagram, "divDiagrama",
 				new go.Binding("desiredSize"))),
 			$(go.TextBlock, 
 				{
-					font: "12pt Arial, sans-serif, Helvetica",
+					font: "14pt Arial, sans-serif, Helvetica",
 					margin: 20,
 					maxSize: new go.Size(256-16, NaN),
-					wrap: go.TextBlock.WrapFit
+					wrap: go.TextBlock.WrapFit,
+					//textAlign: "center"
 				},
 			new go.Binding("text").makeTwoWay())
 	);
@@ -88,11 +91,12 @@ var diagrama = $(go.Diagram, "divDiagrama",
 				new go.Binding("desiredSize"))),
 			$(go.TextBlock,
 				{
-					font: "12pt Arial, sans-serif, Helvetica",
+					font: "14pt Arial, sans-serif, Helvetica",
 					margin: 20,
 					maxSize: new go.Size(256-16, NaN),
 					wrap: go.TextBlock.WrapFit,
-					editable: true
+					editable: true,
+					//textAlign: "center"
 				},
 			new go.Binding("text").makeTwoWay())
 	);
